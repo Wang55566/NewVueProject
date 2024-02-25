@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <div id="app">
-    <p>Hey</p>
+  <div id="app" v-cloak>
+    {{fullName().toUpperCase()}}
   </div>
 
   <script src="https://unpkg.com/vue@3"></script>
