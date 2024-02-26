@@ -14,7 +14,11 @@ const vm = Vue.createApp({
         { name: 'name1', age: 10},
         { name: 'name2', age: 20},
         { name: 'name3', age: 30},
-      ]
+      ],
+      perspective: 100,
+      rotateX: 0,
+      rotateY: 0,
+      rotateZ: 0,
     }
   },
   methods: {
@@ -29,6 +33,12 @@ const vm = Vue.createApp({
     },
     updateMiddleName(e) {
       this.middleName = e.target.value
+    },
+    reset() {
+      this.perspective = 100;
+      this.rotateX = 0;
+      this.rotateY = 0;
+      this.rotateZ = 0;
     }
   },
   computed: {
@@ -37,6 +47,15 @@ const vm = Vue.createApp({
     },
     circle_classes() {
       return {purple: this.isPurple};
+    },
+    box() {
+      return {
+        transform: `perspective(${this.perspective}px)
+                   rotateX(${this.rotateX}deg)
+                   rotateY(${this.rotateY}deg)
+                   rotateZ(${this.rotateZ}deg)
+                  `
+      }
     }
   },
   watch: {
