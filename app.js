@@ -9,7 +9,12 @@ const vm = Vue.createApp({
       isPurple: false,
       selectedColor:"",
       size: 150,
-      mode: 1
+      mode: 1,
+      people: [
+        { name: 'name1', age: 10},
+        { name: 'name2', age: 20},
+        { name: 'name3', age: 30},
+      ]
     }
   },
   methods: {

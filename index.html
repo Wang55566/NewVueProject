@@ -15,7 +15,7 @@
 
       <hr />
       <i v-show="mode == 1">v-show</i>
-      
+
       <label for="">First Name</label>
       <input type="text" v-model.lazy.trim="firstName" />
 
@@ -55,6 +55,11 @@
       >
 
       <input type="number" v-model="size" />
+
+      <ul style="list-style-type: none">
+        <li v-for="(person, index) in people" :class="person" :key="person.name">
+          {{ person.name }} {{ person.age }} {{ index }}
+      </ul>
     </div>
 
     <script src="https://unpkg.com/vue@3"></script>
