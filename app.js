@@ -1,6 +1,7 @@
 const vm = Vue.createApp({
   data() {
     return {
+      message:'Hello',
       firstName: "John",
       lastName: "Bob",
       middleName: "",
@@ -15,10 +16,6 @@ const vm = Vue.createApp({
         { name: 'name2', age: 20},
         { name: 'name3', age: 30},
       ],
-      perspective: 100,
-      rotateX: 0,
-      rotateY: 0,
-      rotateZ: 0,
     }
   },
   methods: {
@@ -34,17 +31,6 @@ const vm = Vue.createApp({
     updateMiddleName(e) {
       this.middleName = e.target.value
     },
-    reset() {
-      this.perspective = 100;
-      this.rotateX = 0;
-      this.rotateY = 0;
-      this.rotateZ = 0;
-    },
-    async copy() {
-      let text = `transform:${this.box.transform};`
-      await navigator.clipboard.writeText(text)
-      alert('CSS property copied.')
-    }
   },
   computed: {
     fullName() {
@@ -53,15 +39,6 @@ const vm = Vue.createApp({
     circle_classes() {
       return {purple: this.isPurple};
     },
-    box() {
-      return {
-        transform: `perspective(${this.perspective}px)
-                   rotateX(${this.rotateX}deg)
-                   rotateY(${this.rotateY}deg)
-                   rotateZ(${this.rotateZ}deg)
-                  `
-      }
-    }
   },
   watch: {
     age(newVal, oldVal) {
@@ -69,8 +46,34 @@ const vm = Vue.createApp({
         this.age = 10
       }, 3000)
     }
+  },
+  beforeCreate() {
+    console.log('beforeCreate Function called!', this.message)
+  },
+  created() {
+    console.log('Create Function called!', this.message)
+  },
+  beforeMount() {
+    console.log('beforeMount Function called!', this.$el)
+  },
+  mounted() {
+    console.log('mounted Function called!', this.$el)
+  },
+  beforeUpdate() {
+    console.log('beforeUpdate Function called!')
+  },
+  updated() {
+    console.log('updated Function called!')
+  },
+  beforeUnmout() {
+    console.log('beforeUmount Function called!')
+  },
+  unmounted() {
+    console.log('unmounted Function called!')
   }
-}).mount('#app')
+})
+
+vm.mount('#app')
 
 
 // Proxy
