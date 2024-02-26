@@ -10,3 +10,15 @@ input[type="text"] {
 [v-cloak] {
   display: none
 }
+
+.purple {
+  color: purple
+}
+
+.text-black {
+  color: black
+}
+
+.text-orange {
+  color: orange
+}

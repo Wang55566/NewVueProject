@@ -5,7 +5,9 @@ const vm = Vue.createApp({
       lastName: "Bob",
       middleName: "",
       url: "https://google.com",
-      age: 20
+      age: 20,
+      isPurple: false,
+      selectedColor:"",
     }
   },
   methods: {
@@ -26,6 +28,16 @@ const vm = Vue.createApp({
     fullName() {
       return `${this.firstName} ${this.middleName} ${this.lastName}`;
     },
+    circle_classes() {
+      return {purple: this.isPurple};
+    }
+  },
+  watch: {
+    age(newVal, oldVal) {
+      setTimeout(() => {
+        this.age = 10
+      }, 3000)
+    }
   }
 }).mount('#app')
 

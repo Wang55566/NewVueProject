@@ -24,8 +24,14 @@
     <label for="">Age</label>
     <input type="number" v-model.number="age"/>
 
-    <button @click="increment">Increment</button>
-    <button @click="age--">Decrement</button>
+    <button @click="increment" :class="[selectedColor, circle_classes]">Increment</button>
+    <button @click="age--" :class="{purple: isPurple}">Decrement</button>
+    <select v-model="selectedColor">
+      <option value="">White</option>
+      <option value="text-white">Black</option>
+      <option value="text-orange">Orange</option>
+    </select>
+    <label><input type="checkbox" v-model="isPurple">purple</label>
   </div>
 
   <script src="https://unpkg.com/vue@3"></script>
