@@ -8,10 +8,14 @@
   </head>
   <body>
     <div id="app" v-cloak>
+      <p v-if="mode === 1">Showing v-if directive content</p>
       <p>{{fullName.toUpperCase()}}</p>
       <p>{{age}}</p>
       <a :href="url">GOOGLE</a>
+
       <hr />
+      <i v-show="mode == 1">v-show</i>
+      
       <label for="">First Name</label>
       <input type="text" v-model.lazy.trim="firstName" />
 
@@ -32,11 +36,13 @@
         Increment
       </button>
       <button @click="age--" :class="circle_classes">Decrement</button>
+
       <select v-model="selectedColor">
         <option value="">White</option>
         <option value="text-white">Black</option>
         <option value="text-orange">Orange</option>
       </select>
+
       <label
         ><input
           type="checkbox"
