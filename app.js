@@ -22,7 +22,7 @@ const vm = Vue.createApp({
     increment() {
       this.age++;
     },
-    updatLastName(meg,e) {
+    updatLastName(msg,e) {
 
       this.lastName = e.target.value
 
@@ -31,6 +31,9 @@ const vm = Vue.createApp({
     updateMiddleName(e) {
       this.middleName = e.target.value
     },
+    updateUrl(e) {
+      this.url = e.target.value
+    }
   },
   computed: {
     fullName() {
@@ -69,7 +72,7 @@ const vm = Vue.createApp({
     console.log('beforeUmount Function called!')
   },
   unmounted() {
-    console.log('unmounted Function called!')
+    console.log('unmounted Function called!!')
   }
 })
 
