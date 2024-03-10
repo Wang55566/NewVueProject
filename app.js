@@ -16,6 +16,7 @@ const vm = Vue.createApp({
         { name: 'name2', age: 20},
         { name: 'name3', age: 30},
       ],
+      isToggle: false,
     }
   },
   methods: {
@@ -72,7 +73,7 @@ const vm = Vue.createApp({
     console.log('beforeUmount Function called!')
   },
   unmounted() {
-    console.log('unmounted Function called!!')
+    console.log('unmounted Function called!')
   }
 })
 
